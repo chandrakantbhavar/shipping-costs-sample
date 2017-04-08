@@ -39,16 +39,22 @@ def makeWebhookResult(req):
     practice=parameters.get("Practice")
     practice=''.join(practice)
     exp=exp.strip()
-    if (exp == '2+ years' or exp == '3+ years' or exp == '4+ years' or exp == '1+ years' or exp == 'SE'):
+    if (exp == '2+ years' or exp == '3+ years' or exp == '4+ years' or exp == '1+ years' or exp == 'SE' or exp=='0-1 years'
+        or exp=='0-2 years' or exp=='1-2 years' or exp=='2-3 years' or exp=='3-4 years'):
         exp = "SE"
-    if (exp == '5+ years' or exp == '6+ years' or exp == '7+ years' or exp == 'SSE'):
+    if (exp == '5+ years' or exp == '6+ years' or exp == '7+ years' or exp == 'SSE'
+        or exp == '5-6 years' or exp == '6-7 years' or exp == '5-7 years' or exp == '7 years'):
         exp = 'SSE'
-    if (exp == '8+ years' or exp == '9+ years' or exp == 'LSE'):
+    if (exp == '8+ years' or exp == '9+ years' or exp == 'LSE'
+        or exp == '8-9 years' or exp == '9-10 years' ):
         exp = 'LSE'
-    if (exp == '11+ years' or exp == '10+ years' or exp == 'ATM'):
+    if (exp == '11+ years' or exp == '10+ years' or exp == 'ATM'
+        or exp == '10-11 years'):
         exp = 'ATM'
-    if (exp == '11+ years' or exp == '12+ years' or exp == 'Manager'):
+    if (exp == '11+ years' or exp == '12+ years' or exp == 'Manager'
+        or exp == '11-12 years'):
         exp = 'Manager'
+
     data=[]
     data.append({'practice': 'IBM', 'experience': 'SE', 'skillset': 'Java', 'Position': '02'})
     data.append({'practice': 'CIS', 'experience': 'SSE', 'skillset': 'python', 'Position': '01'})
@@ -63,7 +69,7 @@ def makeWebhookResult(req):
         if (x['practice'] == practice):
             if (x['experience'] == exp):
                 if x['skillset'] == skillset:
-                    str = "We have oppurtunities in " + practice + " and the position offered will be of " + exp + 'and skill required is ' + skillset + ' No.Of Position ' + \
+                    str = "We have oppurtunities in " + practice + " and the position offered will be of " + exp + ' and skill required is ' + skillset + ' and the No.Of Positions available are ' + \
                           x['Position']
                 else:
                     str = "We have no such oppurtunities right now. But we will get back to you when we have such openings"
