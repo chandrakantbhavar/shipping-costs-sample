@@ -33,8 +33,11 @@ def makeWebhookResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
     exp = parameters.get("Experience")
+    exp=''.join(exp)
     skillset=parameters.get("Skillset")
+    skillset=''.join(skillset)
     practice=parameters.get("Practice")
+    practice=''.join(practice)
 
     data=[]
     data.append({'practice':'IBM','experience':'0-1 years','skillset':'java'})
