@@ -38,22 +38,32 @@ def makeWebhookResult(req):
     skillset=''.join(skillset)
     practice=parameters.get("Practice")
     practice=''.join(practice)
+     if(exp=='2+ years' or exp=='3+ years' or exp=='4+ years' or exp=='1+ years' or exp=='SE'):
+        exp="SE"
+    if (exp == '5+ years' or exp == '6+ years' or exp == '7+ years' or exp == 'SSE'):
+        exp='SSE'
+    if (exp == '8+ years' or exp == '9+ years' or exp == 'LSE'):
+        exp='LSE'
+    if (exp == '11+ years' or exp == '10+ years' or exp == 'ATM'):
+        exp='ATM'
+    if (exp == '11+ years' or exp == '12+ years' or  exp == 'Manager'):
+        exp='Manager'
 
     data=[]
-    data.append({'practice':'IBM','experience':'Fresher','skillset':'Java'})
-    data.append({'practice': 'CIS', 'experience': '2-5 years', 'skillset': 'python'})
-    data.append({'practice': 'Convergens', 'experience': '2-5 years', 'skillset': '.net'})
-    data.append({'practice': 'IBM', 'experience': '0-1 years', 'skillset': 'java'})
-    data.append({'practice': 'CIS', 'experience': '7-9 years', 'skillset': 'java'})
-    data.append({'practice': 'SMAC', 'experience': '5-7 years', 'skillset': 'python'})
-    data.append({'practice': 'Kpoint', 'experience': '2-5 years', 'skillset': 'java'})
-    data.append({'practice': 'SMAC', 'experience': '0-1 years', 'skillset': 'java'})
+    data.append({'practice':'IBM','experience':'SE','skillset':'Java','Position':'02'})
+    data.append({'practice': 'CIS', 'experience': 'SSE', 'skillset': 'python','Position':'01'})
+    data.append({'practice': 'Convergens', 'experience': 'LSE', 'skillset': '.net','Position':'04'})
+    data.append({'practice': 'IBM', 'experience': 'ATM', 'skillset': 'java','Position':'04'})
+    data.append({'practice': 'CIS', 'experience': 'Manager', 'skillset': 'java','Position':'06'})
+    data.append({'practice': 'SMAC', 'experience': 'SE', 'skillset': 'python','Position':'02'})
+    data.append({'practice': 'Kpoint', 'experience': 'LSE', 'skillset': 'java','Position':'03'})
+    data.append({'practice': 'SMAC', 'experience': 'ATM', 'skillset': 'java','Position':'08'})
     str="We have no such oppurtunities right now. But we will get back to you when we have such openings"
     for x in data:
         if (x['practice']==practice):
             if (x['experience']==exp ) or ( x['experience']==exp + ' years'):
                 if x['skillset']==skillset:
-                    str="We have oppurtunities in " + practice + " practice with " + exp  + ' experience and skill required is ' + skillset
+                    str="We have oppurtunities in " + practice + " and the position offered will be of " + exp  + 'and skill required is ' + skillset +' No.Of Position '+x['Position']
                 else:
                     str="We have no such oppurtunities right now. But we will get back to you when we have such openings"
 
