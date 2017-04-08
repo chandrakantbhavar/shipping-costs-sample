@@ -41,9 +41,6 @@ def webhook():
         exp='ATM'
     if (exp == '11+ years' or exp == '12+ years' or  exp == 'Manager'):
         exp='Manager'
-    print exp
-    print practice
-    print skillset
     data.append({'practice':'IBM','experience':'SE','skillset':'Java','Position':'02'})
     data.append({'practice': 'CIS', 'experience': 'SSE', 'skillset': 'python','Position':'01'})
     data.append({'practice': 'Convergens', 'experience': 'LSE', 'skillset': '.net','Position':'04'})
@@ -63,15 +60,13 @@ def webhook():
 
     #return jsonify({'result':str})
 
-return {
+    return {
         "speech": str,
         "displayText": str,
-        #"data": {},
-        # "contextOut": [],
         "source": "apiai-onlinestore-shipping"
     }
 
-if _name_ == '__main__':
+if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
     print "Starting app on port %d" % port
