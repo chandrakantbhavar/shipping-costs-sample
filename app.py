@@ -56,7 +56,7 @@ def makeWebhookResult(req):
         exp = 'Manager'
 
     data=[]
-    data.append({'practice': 'IBM', 'experience': 'SE', 'skillset': 'Java', 'Position': '02'})
+    data.append({'practice': 'IBM', 'experience': 'SE', 'skillset': 'java', 'Position': '02'})
     data.append({'practice': 'CIS', 'experience': 'SSE', 'skillset': 'python', 'Position': '01'})
     data.append({'practice': 'Convergens', 'experience': 'LSE', 'skillset': '.net', 'Position': '04'})
     data.append({'practice': 'IBM', 'experience': 'ATM', 'skillset': 'java', 'Position': '04'})
@@ -68,7 +68,7 @@ def makeWebhookResult(req):
     for x in data:
         if (x['practice'] == practice):
             if (x['experience'] == exp):
-                if x['skillset'] == skillset:
+                if x['skillset'] == skillset.lower():
                     str = "We have oppurtunities in " + practice + " and the position offered will be of " + exp + ' and skill required is ' + skillset + ' and the No.Of Positions available are ' + \
                           x['Position']
                 else:
