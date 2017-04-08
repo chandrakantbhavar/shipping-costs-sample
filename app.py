@@ -28,22 +28,42 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "shipping.cost":
+    if req.get("result").get("action") != "recommender.actions":
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
-    zone = parameters.get("shipping-zone")
+    exp = parameters.get("Experience")
+    skillset=parameters.get("Skillset")
+    practice=parameters.get("Practice")
 
-    cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
+    data=[]
+    data.append({'practice':'IBM','experience':'0-1 years','skillset':'java'})
+    data.append({'practice': 'CIS', 'experience': '2-5 years', 'skillset': 'python'})
+    data.append({'practice': 'Convergens', 'experience': '2-5 years', 'skillset': '.net'})
+    data.append({'practice': 'IBM', 'experience': '0-1 years', 'skillset': 'java'})
+    data.append({'practice': 'CIS', 'experience': '7-9 years', 'skillset': 'java'})
+    data.append({'practice': 'SMAC', 'experience': '5-7 years', 'skillset': 'python'})
+    data.append({'practice': 'Kpoint', 'experience': '2-5 years', 'skillset': 'java'})
+    data.append({'practice': 'SMAC', 'experience': '0-1 years', 'skillset': 'java'})
+    str="We have no such oppurtunities right now. But we will get back to you when we have such openings"
+    for x in data:
+        if (x['practice']==practice):
+            if (x['experience']==exp ) or ( x['experience']==exp + ' years'):
+                if x['skillset']==skillset:
+                    str="We have oppurtunities in " + practice + " practice with " + exp  + ' experience and skill required is ' + skillset
+                else:
+                    str="We have no such oppurtunities right now. But we will get back to you when we have such openings"
 
-    speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
+    #return jsonify({'result':str})
+
+    #speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
 
     print("Response:")
-    print(speech)
+    print(str)
 
     return {
-        "speech": speech,
-        "displayText": speech,
+        "speech": str,
+        "displayText": str,
         #"data": {},
         # "contextOut": [],
         "source": "apiai-onlinestore-shipping"
