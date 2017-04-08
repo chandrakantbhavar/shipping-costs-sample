@@ -40,7 +40,7 @@ def makeWebhookResult(req):
     practice=''.join(practice)
 
     data=[]
-    data.append({'practice':'IBM','experience':'0-1 years','skillset':'java'})
+    data.append({'practice':'IBM','experience':'Fresher','skillset':'java'})
     data.append({'practice': 'CIS', 'experience': '2-5 years', 'skillset': 'python'})
     data.append({'practice': 'Convergens', 'experience': '2-5 years', 'skillset': '.net'})
     data.append({'practice': 'IBM', 'experience': '0-1 years', 'skillset': 'java'})
