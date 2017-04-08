@@ -61,9 +61,9 @@ def makeWebhookResult(req):
     str="We have no such oppurtunities right now. But we will get back to you when we have such openings"
     for x in data:
         if (x['practice']==practice):
-            if (x['experience']==exp ) or ( x['experience']==exp + ' years'):
+            if (x['experience']==exp ):
                 if x['skillset']==skillset:
-                    str="We have oppurtunities in " + practice + " and the position offered will be of " + exp  + 'and skill required is ' + skillset +' No.Of Position '+x['Position']
+                    str="We have oppurtunities in " + practice + " and the position offered will be of " + exp  + ' and skill required is ' + skillset +' No.Of Position '+x['Position']
                 else:
                     str="We have no such oppurtunities right now. But we will get back to you when we have such openings"
 
