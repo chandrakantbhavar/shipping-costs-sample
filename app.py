@@ -38,6 +38,7 @@ def makeWebhookResult(req):
     skillset=''.join(skillset)
     practice=parameters.get("Practice")
     practice=''.join(practice)
+    exp=exp.strip()
     if (exp == '2+ years' or exp == '3+ years' or exp == '4+ years' or exp == '1+ years' or exp == 'SE'):
         exp = "SE"
     if (exp == '5+ years' or exp == '6+ years' or exp == '7+ years' or exp == 'SSE'):
